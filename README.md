@@ -2,8 +2,6 @@
 
 ## Setup
 
-1. Add a Shrek image file named `shrek.png` to this directory
-2. Install dependencies and build:
 
 ```bash
 npm install
