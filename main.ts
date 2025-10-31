@@ -17,16 +17,35 @@ function createStars() {
 
 // Create floating emojis
 function createFloatingEmojis() {
-    const emojis = ['🚀', '⭐', '🌟', '✨', '💫', '🪐', '🌙', '☄️', '👽', '🛸'];
+    const emojis = ['🚀', '⭐', '🌟', '✨', '💫', '🪐', '🌙', '☄️', '👽', '🛸', '🌈', '💥', '🔥', '⚡'];
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
         const emoji = document.createElement('div');
         emoji.className = 'floating-emoji';
         emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
         emoji.style.left = Math.random() * 100 + '%';
         emoji.style.top = Math.random() * 100 + '%';
-        emoji.style.animationDelay = Math.random() * 10 + 's';
-        emoji.style.animationDuration = (5 + Math.random() * 10) + 's';
+        emoji.style.fontSize = (2 + Math.random() * 3) + 'rem';
+
+        // Random durations for each animation to create chaos
+        const floatDuration = (1 + Math.random() * 3) + 's';
+        const rotateDuration = (1 + Math.random() * 2) + 's';
+        const scaleDuration = (0.5 + Math.random() * 2) + 's';
+        const colorDuration = (2 + Math.random() * 4) + 's';
+
+        // Random delays for each animation
+        const floatDelay = Math.random() * 3 + 's';
+        const rotateDelay = Math.random() * 2 + 's';
+        const scaleDelay = Math.random() * 1.5 + 's';
+        const colorDelay = Math.random() * 4 + 's';
+
+        emoji.style.animation = `
+            glitchFloat ${floatDuration} infinite ease-in-out ${floatDelay},
+            glitchRotate ${rotateDuration} infinite linear ${rotateDelay},
+            glitchScale ${scaleDuration} infinite ease-in-out ${scaleDelay},
+            glitchColor ${colorDuration} infinite ${colorDelay}
+        `;
+
         document.body.appendChild(emoji);
     }
 }
